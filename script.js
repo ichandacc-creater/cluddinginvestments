@@ -191,6 +191,21 @@ document.addEventListener('DOMContentLoaded', () => {
   // Update on resize
   window.addEventListener('resize', updateNavToggleVisibility);
 
+  // Define functions globally for debugging
+  window.openMobileMenu = function() {
+    if (siteNav) siteNav.classList.add('mobile-open');
+    if (navToggle) navToggle.classList.add('active');
+    if (mobileOverlay) mobileOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  };
+
+  window.closeMobileMenu = function() {
+    if (siteNav) siteNav.classList.remove('mobile-open');
+    if (navToggle) navToggle.classList.remove('active');
+    if (mobileOverlay) mobileOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+  };
+
   if (navToggle && siteNav) {
     navToggle.addEventListener('click', () => {
       const isOpen = siteNav.classList.contains('mobile-open');
@@ -217,20 +232,6 @@ document.addEventListener('DOMContentLoaded', () => {
         closeMobileMenu();
       }
     });
-  }
-
-  function openMobileMenu() {
-    siteNav.classList.add('mobile-open');
-    navToggle.classList.add('active');
-    mobileOverlay.classList.add('active');
-    document.body.style.overflow = 'hidden'; // Prevent background scrolling
-  }
-
-  function closeMobileMenu() {
-    siteNav.classList.remove('mobile-open');
-    navToggle.classList.remove('active');
-    mobileOverlay.classList.remove('active');
-    document.body.style.overflow = ''; // Restore scrolling
   }
 
   // Smooth scroll for internal anchors

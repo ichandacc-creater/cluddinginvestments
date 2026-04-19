@@ -23,7 +23,7 @@
 
   <header class="site-header">
     <div class="container header-inner">
-      <a class="logo" href="home.html"><img src="images/logo.png" alt="Cladding Investments Logo" style="height:130px;width:auto"></a>
+      <a class="logo" href="home.html"><img src="images/logo.png" alt="Cladding Investments Logo" style="height:180px;width:auto"></a>
       <button type="button" id="nav-toggle" class="nav-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
       </button>
@@ -177,9 +177,9 @@
         <h2>Why Should You Choose Us?</h2>
       </div>
       <div class="why-copy">
-        <p>Cladding Investments is a trusted partner for sustainable, innovative, and high-quality construction solutions. They specialize in using eco-friendly materials that stand the test of time, ensuring projects are both durable and environmentally responsible. With expertise spanning diverse rehabilitation works from science and computer labs to kitchens, plumbing, and electrical installations, they deliver precision and functionality across every project.</p>
-        <p>Guided by values of integrity, innovation, and excellence, Cladding Investments builds lasting trust through transparent communication and modern design approaches. Their highly trained teams guarantee safe, professional, and on-time installations, consistently exceeding expectations.</p>
-        <p><strong>By combining sustainability with craftsmanship, they are not just building structures — they are shaping a future where quality and responsibility go hand in hand.</strong></p>
+        <p>Cladding Investments is a trusted partner for sustainable, innovative, and high-quality construction solutions. We specialize in using eco-friendly materials that stand the test of time, ensuring projects are both durable and environmentally responsible. With expertise spanning diverse rehabilitation works from science and computer labs to kitchens, plumbing, and electrical installations,we deliver precision and functionality across every project.</p>
+        <p>Guided by values of integrity, innovation, and excellence, Cladding Investments builds lasting trust through transparent communication and modern design approaches.Our  highly trained teams guarantee safe, professional, and on-time installations, consistently exceeding expectations.</p>
+        <p><strong>By combining sustainability with craftsmanship, we are not just building structures — we are shaping a future where quality and responsibility go hand in hand.</strong></p>
       </div>
     </section>
 
@@ -225,5 +225,150 @@
   </footer>
 
   <script src="script.js"></script>
+  
+  <!-- Mobile navigation fix -->
+  <script>
+    (function() {
+      function initMobileNav() {
+        const navToggle = document.getElementById('nav-toggle');
+        const siteNav = document.getElementById('site-nav');
+        
+        if (!navToggle || !siteNav) {
+          setTimeout(initMobileNav, 100);
+          return;
+        }
+
+        // Create overlay if it doesn't exist
+        let mobileOverlay = document.querySelector('.mobile-overlay');
+        if (!mobileOverlay) {
+          mobileOverlay = document.createElement('div');
+          mobileOverlay.className = 'mobile-overlay';
+          document.body.appendChild(mobileOverlay);
+        }
+
+        // Show/hide nav toggle based on screen size
+        function updateNavToggleVisibility() {
+          if (window.innerWidth < 1025) {
+            navToggle.style.display = 'flex';
+          } else {
+            navToggle.style.display = 'none';
+          }
+        }
+
+        // Initial check
+        updateNavToggleVisibility();
+
+        // Update on resize
+        window.addEventListener('resize', updateNavToggleVisibility);
+
+        // Define functions globally
+        window.openMobileMenu = function() {
+          siteNav.classList.add('mobile-open');
+          navToggle.classList.add('active');
+          mobileOverlay.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        };
+
+        window.closeMobileMenu = function() {
+          siteNav.classList.remove('mobile-open');
+          navToggle.classList.remove('active');
+          mobileOverlay.classList.remove('active');
+          document.body.style.overflow = '';
+        };
+
+        // Add click event listener
+        navToggle.addEventListener('click', () => {
+          const isOpen = siteNav.classList.contains('mobile-open');
+          if (isOpen) {
+            closeMobileMenu();
+          } else {
+            openMobileMenu();
+          }
+        });
+
+        // Close menu when a nav link is clicked (mobile)
+        siteNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+          if (window.innerWidth < 1025) {
+            closeMobileMenu();
+          }
+        }));
+
+        // Close menu when clicking overlay
+        mobileOverlay.addEventListener('click', closeMobileMenu);
+
+        // Close menu on escape key
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && siteNav.classList.contains('mobile-open')) {
+            closeMobileMenu();
+          }
+        });
+      }
+
+      // Auto-hide header functionality
+      function initAutoHideHeader() {
+        const header = document.querySelector('.site-header');
+        if (!header) return;
+
+        let lastScrollTop = 0;
+        let isHidden = false;
+        const scrollThreshold = 100; // Minimum scroll distance before hiding/showing
+
+        window.addEventListener('scroll', () => {
+          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          
+          // Don't hide header if mobile menu is open
+          const siteNav = document.getElementById('site-nav');
+          if (siteNav && siteNav.classList.contains('mobile-open')) {
+            return;
+          }
+
+          if (Math.abs(lastScrollTop - scrollTop) <= scrollThreshold) {
+            return;
+          }
+
+          if (scrollTop > lastScrollTop && scrollTop > 100) {
+            // Scrolling down - hide header
+            if (!isHidden) {
+              header.classList.add('header-hidden');
+              isHidden = true;
+            }
+          } else {
+            // Scrolling up - show header
+            if (isHidden) {
+              header.classList.remove('header-hidden');
+              isHidden = false;
+            }
+          }
+
+          lastScrollTop = scrollTop;
+        });
+
+        // Show header when mouse moves to top of screen
+        let mouseNearTop = false;
+        document.addEventListener('mousemove', (e) => {
+          if (e.clientY < 50 && !mouseNearTop) {
+            mouseNearTop = true;
+            if (isHidden) {
+              header.classList.remove('header-hidden');
+              isHidden = false;
+            }
+          } else if (e.clientY > 100 && mouseNearTop) {
+            mouseNearTop = false;
+          }
+        });
+      }
+
+      // Initialize when DOM is ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+          initMobileNav();
+          initAutoHideHeader();
+        });
+      } else {
+        initMobileNav();
+        initAutoHideHeader();
+      }
+    })();
+  </script>
 </body>
 </html>
