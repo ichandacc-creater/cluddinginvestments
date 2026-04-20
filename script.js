@@ -570,7 +570,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 3D Mouse Tracking Effects
   const cards = document.querySelectorAll('.feature, .project-card, .section-card');
-  const hero = document.querySelector('.hero');
+  const heroSection = document.querySelector('.hero');
 
   function handleMouseMove(e) {
     const rect = this.getBoundingClientRect();
@@ -597,9 +597,9 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Hero 3D parallax effect with enhanced particles
-  if (hero) {
-    hero.addEventListener('mousemove', (e) => {
-      const rect = hero.getBoundingClientRect();
+  if (heroSection) {
+    heroSection.addEventListener('mousemove', (e) => {
+      const rect = heroSection.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
       const centerX = rect.width / 2;
@@ -607,8 +607,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const moveX = (x - centerX) / 60;
       const moveY = (y - centerY) / 60;
 
-      const cubes = hero.querySelectorAll('.floating-cube');
-      const particles = hero.querySelectorAll('.particle');
+      const cubes = heroSection.querySelectorAll('.floating-cube');
+      const particles = heroSection.querySelectorAll('.particle');
 
       cubes.forEach((cube, index) => {
         const speed = (index + 1) * 0.8;
@@ -622,9 +622,9 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    hero.addEventListener('mouseleave', () => {
-      const cubes = hero.querySelectorAll('.floating-cube');
-      const particles = hero.querySelectorAll('.particle');
+    heroSection.addEventListener('mouseleave', () => {
+      const cubes = heroSection.querySelectorAll('.floating-cube');
+      const particles = heroSection.querySelectorAll('.particle');
 
       cubes.forEach(cube => {
         cube.style.transform = '';
