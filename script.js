@@ -181,6 +181,9 @@ document.addEventListener('DOMContentLoaded', () => {
         navToggle.style.display = 'flex';
       } else {
         navToggle.style.display = 'none';
+        if (typeof closeMobileMenu === 'function' && siteNav && siteNav.classList.contains('mobile-open')) {
+          closeMobileMenu();
+        }
       }
     }
   }
@@ -193,15 +196,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Define functions globally for debugging
   window.openMobileMenu = function() {
-    if (siteNav) siteNav.classList.add('mobile-open');
-    if (navToggle) navToggle.classList.add('active');
+    if (siteNav) {
+      siteNav.classList.add('mobile-open');
+      siteNav.setAttribute('aria-expanded', 'true');
+    }
+    if (navToggle) {
+      navToggle.classList.add('active');
+      navToggle.setAttribute('aria-expanded', 'true');
+    }
     if (mobileOverlay) mobileOverlay.classList.add('active');
     document.body.style.overflow = 'hidden';
   };
 
   window.closeMobileMenu = function() {
-    if (siteNav) siteNav.classList.remove('mobile-open');
-    if (navToggle) navToggle.classList.remove('active');
+    if (siteNav) {
+      siteNav.classList.remove('mobile-open');
+      siteNav.setAttribute('aria-expanded', 'false');
+    }
+    if (navToggle) {
+      navToggle.classList.remove('active');
+      navToggle.setAttribute('aria-expanded', 'false');
+    }
     if (mobileOverlay) mobileOverlay.classList.remove('active');
     document.body.style.overflow = '';
   };
