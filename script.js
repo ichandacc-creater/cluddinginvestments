@@ -530,7 +530,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
-  revealElements.forEach(el => revealObserver.observe(el));
 
   // WhatsApp pulse (if present)
   const whatsappBtn = document.querySelector('.whatsapp-btn');
