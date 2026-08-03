@@ -6,13 +6,13 @@
   <title>FAQ — Cladding Investments</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="styles-redesign.css">
+  <link rel="stylesheet" href="styles.css?v=2">
 </head>
 <body class="profile-page">
   <header class="site-header">
     <div class="container header-inner">
       <a class="logo" href="home.html"><img src="images/logo.png" alt="Cladding Investments Logo" style="height:130px;width:auto"></a>
-      <button type="button" id="nav-toggle" class="nav-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Toggle navigation">
+      <button id="nav-toggle" class="nav-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
       </button>
       <nav class="site-nav" id="site-nav" role="navigation">
@@ -190,5 +190,30 @@
   </main>
 
   <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.accordion-header').forEach(header => {
+        header.addEventListener('click', () => {
+          const accordionItem = header.closest('.accordion-item');
+          const content = accordionItem ? accordionItem.querySelector('.accordion-content') : null;
+          if (!accordionItem || !content) return;
+
+          const isActive = accordionItem.classList.toggle('active');
+          if (isActive) {
+            content.style.maxHeight = content.scrollHeight + 'px';
+          } else {
+            content.style.maxHeight = null;
+          }
+
+          document.querySelectorAll('.accordion-item.active').forEach(other => {
+            if (other === accordionItem) return;
+            other.classList.remove('active');
+            const otherContent = other.querySelector('.accordion-content');
+            if (otherContent) otherContent.style.maxHeight = null;
+          });
+        });
+      });
+    });
+  </script>
 </body>
 </html>
