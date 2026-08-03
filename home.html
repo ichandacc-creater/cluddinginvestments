@@ -9,9 +9,9 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="styles.css?v=2">
+  <link rel="stylesheet" href="styles-redesign.css">
 </head>
-<body class="profile-home">
+<body class="profile-home blink-home">
   <header class="site-header">
     <div class="container header-inner">
       <a class="logo" href="home.html"><img src="images/logo.png" alt="Cladding Investments Logo" style="height:130px;width:auto"></a>
@@ -29,7 +29,7 @@
   </header>
 
   <main>
-    <section class="profile-hero">
+    <section class="profile-hero hero">
       <div class="container hero-content">
         <div class="hero-copy">
           <span class="hero-intro">WELCOME TO</span>
@@ -40,12 +40,34 @@
             <a href="projects.html" class="btn secondary">View Projects</a>
             <a href="contact.html" class="btn secondary">Request Quote</a>
           </div>
+          <p class="hero-highlights-label">Core capabilities</p>
           <ul class="hero-badges">
             <li>Laboratory & Laboratory Rehab</li>
             <li>Kitchen Modernization</li>
             <li>Electrical & Plumbing Systems</li>
             <li>Gas Line Installation</li>
           </ul>
+        </div>
+        <div class="hero-panel">
+          <div class="hero-panel-card">
+            <div class="hero-panel-label">Featured services</div>
+            <h2>Delivering polished lab, kitchen, electrical and gas line work with modern systems integration.</h2>
+            <p>We combine engineering, construction and installation know-how to create institutional and commercial spaces that perform reliably and look premium.</p>
+            <div class="hero-panel-stats">
+              <div>
+                <strong class="count-up" data-target="35" data-suffix="+"></strong>
+                <span>Projects completed</span>
+              </div>
+              <div>
+                <strong class="count-up" data-target="10"></strong>
+                <span>Years in business</span>
+              </div>
+              <div>
+                <strong class="count-up" data-target="100" data-suffix="%"></strong>
+                <span>Client satisfaction</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -83,71 +105,80 @@
 
     <section class="profile-values container">
       <div class="values-grid">
-        <article class="value-card blue-card">
+        <article class="value-card value-card-vision">
           <div class="value-icon"><i class="fas fa-eye"></i></div>
           <h3>Our Vision</h3>
-          <p>To be the leading provider of cladding solutions in the region recognized for quality, reliability, and eco-conscious practices that support community growth and development.</p>
+          <p>To be the trusted regional leader in construction and infrastructure solutions, recognised for quality, reliability and responsible growth.</p>
         </article>
-        <article class="value-card red-card">
+        <article class="value-card value-card-mission">
           <div class="value-icon"><i class="fas fa-bullseye"></i></div>
           <h3>Our Mission</h3>
-          <p>To deliver modern, durable, and sustainable cladding solutions that transform infrastructure across Zambia. We aim to combine design innovation with practical functionality for long-lasting impact.</p>
+          <p>To deliver modern, durable and sustainable building solutions that enhance lives, strengthen institutions and create long-term value.</p>
         </article>
-        <article class="value-card dark-card">
+        <article class="value-card value-card-objectives">
           <div class="value-icon"><i class="fas fa-flag-checkered"></i></div>
           <h3>Our Objectives</h3>
-          <p>To be the leading provider of cladding solutions in the region, recognized for quality, reliability, and eco-conscious practices that support community growth and development.</p>
+          <p>To expand dependable delivery, strengthen client partnerships, uphold quality standards and support safe, efficient project execution.</p>
         </article>
-        <article class="value-card light-card">
+        <article class="value-card value-card-positioning">
           <div class="value-icon"><i class="fas fa-chess-king"></i></div>
           <h3>Our Positioning</h3>
           <ul class="positioning-list">
-            <li>High-quality, durable construction solutions</li>
-            <li>Focus on sustainability and modern techniques</li>
-            <li>Integration of design innovation with functionality</li>
-            <li>Tailored solutions for institutional and commercial clients</li>
+            <li>High-quality solutions for schools, facilities and commercial spaces</li>
+            <li>Practical innovation paired with long-lasting craftsmanship</li>
+            <li>Transparent delivery and strong project coordination</li>
+            <li>Trusted partner for modern infrastructure upgrades</li>
           </ul>
         </article>
       </div>
     </section>
 
     <section class="core-services container">
-      <!-- Core service image placeholders:
-           images/nsobe-project-hero.jpg
-           images/kansanshi-lab-main.jpg
-           images/kansanshi-systems-main.jpg
-      -->
-      <div class="section-header">
-        <h2>Core Services</h2>
+      <div class="section-header section-header-wide">
+        <span class="section-kicker">Our Services</span>
+        <h2>We cover a wide range of construction and infrastructure solutions.</h2>
+        <p>From laboratory fit-outs and rehabilitation to kitchen upgrades, electrical and plumbing systems, and essential equipment supply, we support institutions and commercial clients with dependable delivery.</p>
       </div>
       <div class="service-panels">
-        <article class="service-panel red-panel">
-          <img src="images/Nsobe%20project%20(1).jpg" alt="Natural Sciences Lab" title="Replace with your own image: images/nsobe-project-hero.jpg" class="service-image">
+        <article class="service-panel service-panel-feature red-panel">
+          <div class="slideshow-container">
+            <img src="images/Nsobe%20project%20(1).jpg" alt="Nsobe lab project 1" class="service-image slideshow-image" style="animation-delay: 0s;">
+            <img src="images/Nsobe%20project%20(2).jpeg" alt="Nsobe lab project 2" class="service-image slideshow-image" style="animation-delay: 6.6s;">
+            <img src="images/Nsobe%20project%20(3).jpeg" alt="Nsobe lab project 3" class="service-image slideshow-image" style="animation-delay: 13.2s;">
+            <img src="images/Nsobe%20project%20(4).jpeg" alt="Nsobe lab project 4" class="service-image slideshow-image" style="animation-delay: 19.8s;">
+            <img src="images/Nsobe%20project%20(5).jpeg" alt="Nsobe lab project 5" class="service-image slideshow-image" style="animation-delay: 26.4s;">
+          </div>
           <div>
-            <h3>Construction and Rehabilitation of Natural Sciences Laboratories</h3>
+            <span class="service-tag">Laboratories</span>
+            <h3>Construction and rehabilitation of natural sciences laboratories</h3>
+            <p>Modern, durable lab environments designed for performance, safety and long-term use.</p>
           </div>
         </article>
-        <article class="service-panel blue-panel">
+        <article class="service-panel service-panel-split blue-panel">
           <div class="slideshow-container">
             <img src="images/computer (1).jpg" alt="Computer Laboratory" class="service-image slideshow-image" style="animation-delay: 0s;">
             <img src="images/kitchen.jpg" alt="Modern Kitchen" class="service-image slideshow-image" style="animation-delay: 8.3s;">
             <img src="images/science lab.jpeg" alt="Science Laboratory" class="service-image slideshow-image" style="animation-delay: 16.6s;">
           </div>
           <div>
-            <h3>Construction and Rehabilitation of Computer Laboratories<br>Modernized Kitchen Construction and Upgrades</h3>
+            <span class="service-tag">Facilities</span>
+            <h3>Computer lab construction and modern kitchen upgrades</h3>
+            <p>Practical spaces built to support teaching, operations and everyday use.</p>
           </div>
         </article>
-        <article class="service-panel slideshow-panel">
+        <article class="service-panel service-panel-split slideshow-panel">
           <div class="slideshow-container">
-            <img src="images/gas installation.jpg" alt="Gas Installation" class="service-image slideshow-image-3" style="animation-delay: 0s;">
-            <img src="images/kansenshi2.jpg" alt="Plumbing Works" class="service-image slideshow-image-3" style="animation-delay: 5s;">
+            <img src="images/SYSTEMS.jpg" alt="Systems Installation" class="service-image slideshow-image-3" style="animation-delay: 0s;">
+            <img src="images/gas installation.jpg" alt="Gas Installation" class="service-image slideshow-image-3" style="animation-delay: 5s;">
             <img src="images/electrician.jpg" alt="Electrical Wiring" class="service-image slideshow-image-3" style="animation-delay: 10s;">
           </div>
           <div>
-            <h3>Plumbing Works<br>Electrical Wiring<br>Gas Line Installation</h3>
+            <span class="service-tag">Systems</span>
+            <h3>Plumbing, electrical and gas line installations</h3>
+            <p>Integrated infrastructure works that keep facilities running smoothly and safely.</p>
           </div>
         </article>
-        <article class="service-panel slideshow-panel">
+        <article class="service-panel service-panel-split slideshow-panel">
           <div class="slideshow-container">
             <img src="images/sparepart1.jpg" alt="Spares 1" class="service-image slideshow-image" style="animation-delay: 0s;">
             <img src="images/spare part 2.jpg" alt="Spares 2" class="service-image slideshow-image" style="animation-delay: 5s;">
@@ -156,8 +187,9 @@
             <img src="images/machine2.jpg" alt="Machine 2" class="service-image slideshow-image" style="animation-delay: 20s;">
           </div>
           <div>
-            <h3>General Supplies of Lab, Kitchen, Computer and Mining Machines Spares and Equipment</h3>
-            <p>Complete inventory of high-quality spares and equipment for all your operational needs</p>
+            <span class="service-tag">Supply</span>
+            <h3>General supplies of lab, kitchen, computer and mining equipment</h3>
+            <p>Reliable access to quality spares and machinery for operational continuity.</p>
           </div>
         </article>
       </div>
@@ -181,21 +213,21 @@
       <div class="contact-details-grid">
         <div class="contact-info-list">
           <div class="contact-item">
-            <div class="contact-marker blue">1</div>
+            <div class="contact-marker"><i class="fas fa-map-marker-alt"></i></div>
             <div class="contact-info-text">
               <h3>Physical Location</h3>
               <p>Plot 44 New Airport Road, Dagmamskjoeld, Ndola</p>
             </div>
           </div>
           <div class="contact-item">
-            <div class="contact-marker red">2</div>
+            <div class="contact-marker"><i class="fas fa-phone-alt"></i></div>
             <div class="contact-info-text">
               <h3>Contact Numbers</h3>
-              <p>+260 966 011 997<br>+260 971 109 987</p>
+              <p>+260 966 011 997<br>+260 971 710 987</p>
             </div>
           </div>
           <div class="contact-item">
-            <div class="contact-marker white">3</div>
+            <div class="contact-marker"><i class="fas fa-envelope"></i></div>
             <div class="contact-info-text">
               <h3>Email Us</h3>
               <p><a href="mailto:inch.2009@yahoo.com">inch.2009@yahoo.com</a></p>
@@ -203,7 +235,12 @@
           </div>
         </div>
         <div class="contact-graphic">
-          <div class="phone-illustration"><i class="fas fa-phone-alt"></i></div>
+          <div class="contact-cta-card">
+            <div class="contact-cta-icon"><i class="fas fa-headset"></i></div>
+            <h3>Need help with a project?</h3>
+            <p>We’re ready to discuss quotations, site visits and full delivery plans for your next build.</p>
+            <a href="mailto:inch.2009@yahoo.com" class="btn secondary">Email us now</a>
+          </div>
         </div>
       </div>
     </section>
