@@ -8,23 +8,13 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="styles.css?v=2">
+  <link rel="stylesheet" href="styles-redesign.css">
 </head>
-<body class="profile-page">
-  <!-- Welcome Splash Screen -->
-  <div id="welcome-splash" class="welcome-splash">
-    <div class="welcome-content">
-      <img src="images/logo.png" alt="Cladding Investments" class="welcome-logo">
-      <h1>Welcome to Cladding Investments</h1>
-      <p>Building Excellence with Cladding Solutions</p>
-      <div class="welcome-loader"></div>
-    </div>
-  </div>
-
+<body class="profile-page blink-home">
   <header class="site-header">
     <div class="container header-inner">
-      <a class="logo" href="home.html"><img src="images/logo.png" alt="Cladding Investments Logo" style="height:130px;width:auto"></a>
-      <button id="nav-toggle" class="nav-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="logo" href="home.html"><img src="images/logo.png" alt="Cladding Investments Logo"></a>
+      <button type="button" id="nav-toggle" class="nav-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
       </button>
        <nav class="site-nav" id="site-nav" role="navigation">
@@ -38,7 +28,7 @@
   </header>
 
   <main>
-    <section class="profile-hero">
+    <section class="profile-hero hero">
       <div class="container hero-content">
         <div class="hero-copy">
           <span class="hero-intro">WELCOME TO</span>
@@ -55,6 +45,27 @@
             <li>Electrical & Plumbing Systems</li>
             <li>Gas Line Installation</li>
           </ul>
+        </div>
+        <div class="hero-panel">
+          <div class="hero-panel-card">
+            <div class="hero-panel-label">Featured services</div>
+            <h2>Delivering polished lab, kitchen, electrical and gas line work with modern systems integration.</h2>
+            <p>We combine engineering, construction and installation know-how to create institutional and commercial spaces that perform reliably and look premium.</p>
+            <div class="hero-panel-stats">
+              <div>
+                <strong>35+</strong>
+                <span>Projects completed</span>
+              </div>
+              <div>
+                <strong>14</strong>
+                <span>Years in business</span>
+              </div>
+              <div>
+                <strong>100%</strong>
+                <span>Client satisfaction</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -177,9 +188,9 @@
         <h2>Why Should You Choose Us?</h2>
       </div>
       <div class="why-copy">
-        <p>Cladding Investments is a trusted partner for sustainable, innovative, and high-quality construction solutions. They specialize in using eco-friendly materials that stand the test of time, ensuring projects are both durable and environmentally responsible. With expertise spanning diverse rehabilitation works from science and computer labs to kitchens, plumbing, and electrical installations, they deliver precision and functionality across every project.</p>
-        <p>Guided by values of integrity, innovation, and excellence, Cladding Investments builds lasting trust through transparent communication and modern design approaches. Their highly trained teams guarantee safe, professional, and on-time installations, consistently exceeding expectations.</p>
-        <p><strong>By combining sustainability with craftsmanship, they are not just building structures — they are shaping a future where quality and responsibility go hand in hand.</strong></p>
+        <p>Cladding Investments is a trusted partner for sustainable, innovative, and high-quality construction solutions. We specialize in using eco-friendly materials that stand the test of time, ensuring projects are both durable and environmentally responsible. With expertise spanning diverse rehabilitation works from science and computer labs to kitchens, plumbing, and electrical installations,we deliver precision and functionality across every project.</p>
+        <p>Guided by values of integrity, innovation, and excellence, Cladding Investments builds lasting trust through transparent communication and modern design approaches.Our  highly trained teams guarantee safe, professional, and on-time installations, consistently exceeding expectations.</p>
+        <p><strong>By combining sustainability with craftsmanship, we are not just building structures — we are shaping a future where quality and responsibility go hand in hand.</strong></p>
       </div>
     </section>
 
@@ -225,5 +236,54 @@
   </footer>
 
   <script src="script.js"></script>
+  
+  <!-- Header auto-hide fix -->
+  <script>
+    (function() {
+      function initAutoHideHeader() {
+        const header = document.querySelector('.site-header');
+        if (!header) return;
+
+        let lastScrollTop = 0;
+        let isHidden = false;
+        const scrollThreshold = 100;
+
+        window.addEventListener('scroll', () => {
+          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          const siteNav = document.getElementById('site-nav');
+          if (siteNav && siteNav.classList.contains('mobile-open')) return;
+
+          if (Math.abs(lastScrollTop - scrollTop) <= scrollThreshold) return;
+
+          if (scrollTop > lastScrollTop && scrollTop > 100) {
+            if (!isHidden) {
+              header.classList.add('header-hidden');
+              isHidden = true;
+            }
+          } else {
+            if (isHidden) {
+              header.classList.remove('header-hidden');
+              isHidden = false;
+            }
+          }
+
+          lastScrollTop = scrollTop;
+        });
+
+        document.addEventListener('mousemove', (e) => {
+          if (e.clientY < 50 && isHidden) {
+            header.classList.remove('header-hidden');
+            isHidden = false;
+          }
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initAutoHideHeader);
+      } else {
+        initAutoHideHeader();
+      }
+    })();
+  </script>
 </body>
 </html>

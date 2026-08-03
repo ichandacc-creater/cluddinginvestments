@@ -54,7 +54,7 @@ main { overflow-x: hidden; }
   gap: 20px;
   padding: 16px 0;
 }
-.logo img { height: 70px; width: auto; }
+.logo img { height: 90px; width: auto; }
 .site-nav { display: flex; align-items: center; gap: 8px; }
 .site-nav a {
   padding: 10px 14px;
@@ -255,7 +255,7 @@ main { overflow-x: hidden; }
   background: rgba(255,255,255,0.12);
   color: #fff;
 }
-.blink-home .logo img { height: 78px; }
+.blink-home .logo img { height: 90px; }
 .blink-home .btn {
   border-color: transparent;
 }
@@ -859,6 +859,48 @@ footer {
   .hero-badges { grid-template-columns: 1fr; }
 }
 
+@media (max-width: 1024px) {
+  .nav-toggle {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 4px;
+    border: 1px solid var(--border);
+    background: #fff;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  .nav-toggle span {
+    width: 22px;
+    height: 2px;
+    background: var(--text);
+    display: block;
+  }
+  .site-nav {
+    position: fixed;
+    inset: 0 auto 0 0;
+    width: min(88vw, 320px);
+    padding: 88px 18px 24px;
+    background: #fff;
+    border-right: 1px solid var(--border);
+    flex-direction: column;
+    align-items: flex-start;
+    transform: translateX(-100%);
+    transition: transform 0.2s ease;
+    z-index: 1300;
+  }
+  .site-nav.mobile-open { transform: translateX(0); }
+  .site-nav a { width: 100%; padding: 12px 14px; }
+  .mobile-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(17, 24, 39, 0.35);
+    z-index: 1250;
+    display: none;
+  }
+  .mobile-overlay.active { display: block; }
+  .logo img { height: 90px; }
+}
+
 @media (max-width: 760px) {
   .container { width: min(var(--container), calc(100% - 20px)); }
   .nav-toggle {
@@ -903,7 +945,7 @@ footer {
   .form-row { grid-template-columns: 1fr; }
   .hero-badges { gap: 8px; }
   .profile-hero { padding: 48px 0 40px; }
-  .logo img { height: 58px; }
+  .logo img { height: 78px; }
   .profile-overview,
   .profile-values,
   .core-services,
