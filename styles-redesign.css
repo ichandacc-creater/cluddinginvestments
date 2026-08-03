@@ -53,6 +53,7 @@ main { overflow-x: hidden; }
   justify-content: space-between;
   gap: 20px;
   padding: 16px 0;
+  position: relative;
 }
 .logo img { height: 90px; width: auto; }
 .site-nav { display: flex; align-items: center; gap: 8px; }
@@ -328,7 +329,7 @@ main { overflow-x: hidden; }
 }
 .overview-brand {
   padding: 28px;
-  background: linear-gradient(135deg, var(--primary) 0%, #1748aa 100%);
+  background: linear-gradient(135deg, #040813 0%, #0b1630 38%, #123a8f 100%);
   color: #fff;
 }
 .overview-brand h2 { margin: 0 0 10px; color: #fff; }
@@ -862,12 +863,18 @@ footer {
 @media (max-width: 1024px) {
   .nav-toggle {
     display: inline-flex;
+    position: absolute;
+    top: 50%;
+    right: 18px;
+    transform: translateY(-50%);
+    z-index: 1400;
     flex-direction: column;
     gap: 4px;
     border: 1px solid var(--border);
-    background: #fff;
+    background: rgba(255,255,255,0.95);
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 12px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
   }
   .nav-toggle span {
     width: 22px;
@@ -905,12 +912,18 @@ footer {
   .container { width: min(var(--container), calc(100% - 20px)); }
   .nav-toggle {
     display: inline-flex;
+    position: absolute;
+    top: 50%;
+    right: 18px;
+    transform: translateY(-50%);
+    z-index: 1400;
     flex-direction: column;
     gap: 4px;
     border: 1px solid var(--border);
-    background: #fff;
+    background: rgba(255,255,255,0.95);
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 12px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
   }
   .nav-toggle span {
     width: 22px;

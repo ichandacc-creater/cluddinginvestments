@@ -264,7 +264,8 @@ document.addEventListener('DOMContentLoaded', () => {
     link.addEventListener('click', e => {
       const hash = link.getAttribute('href');
       if (hash && hash.startsWith('#')) {
-        const target = document.querySelector(hash);\n        if (target) {
+        const target = document.querySelector(hash);
+        if (target) {
           e.preventDefault();
           target.scrollIntoView({ behavior: 'smooth' });
         }
